@@ -3,79 +3,98 @@ body {
     font-family: 'Mulish', sans-serif;
 }
 
-/*HEADER*/
+/* Header */
+
 header {
     display: block;
 }
 
 .banner__header {
+    display: flex;
+    align-items: flex-end;
     width: 100%;
-    height: 500px;
+    height: 250px;
     background: rgb(29, 29, 29);
-    background: linear-gradient(90deg, rgba(29, 29, 29, 1) 35%, rgba(56, 56, 56, 1) 100%);
+    background: linear-gradient(180deg, rgba(29, 29, 29, 1) 35%, rgba(56, 56, 56, 1) 100%);
     position: relative;
-    overflow: hidden;
-    align-content: center;
-    
+
 }
 
 .input__btnAsesoria {
     background-color: #FCD61C;
     border: 0px;
     border-radius: 10px;
-    margin-left: 5vw;
     padding: 10px 30px;
-    transition: 0.5s;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'Nunito', sans-serif;
     cursor: pointer;
-}
-
-
-.input__btnAsesoria:hover {
-    background-color: #f2ff00;
-    padding: 15px 35px;
-}
-
-.input__btnAsesoria:active {
-    background-color: #b19a23;
-}
-
-.content__images {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 30%;
+    top: 0;
+    left: 0;
+    transform: translateY(80%);
+    margin-left: 2rem;
 }
 
-.content__imagesBack {
+
+.logo {
+    height: 15%;
     position: absolute;
-    bottom: 0;
-    left: 53%;
-    width: 30%;
+    top: 0;
+    right: 0;
+    transform: translateX(-50%) translateY(100%);
 }
 
-.content__imagesLogo {
-    position: absolute;
-    bottom: 55%;
-    left: 63%;
-    width: 200px;
-}
-
-.image-banner,
-.image-bannerBack,
-.image-bannerLogo {
+.img-container{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 60%;
+    
 }
 
+.image-banner{
+    z-index: 20;
+    position: absolute;
+    height: 100%;
+    transform: translateX(-20%);
+}
+.image-bannerBack{
+    z-index: 10;
+    position: absolute;
+    height: 90%;
+    transform: translateX(-15%);
+
+}
+
+@media (min-width: 900px) {
+    .input__btnAsesoria {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        margin-left: 0rem;
+        transform: translateX(50%) translateY(-200%);
+    }
+    .logo {
+        transform: translateX(-100%) translateY(100%);
+    }
+
+    .image-banner{
+        transform: translateX(-30%);
+    }
+    .image-bannerBack{
+        transform: translateX(-25%);
+
+    }
+}
 
 /* MAIN */
 
 main {
     display: block;
     justify-items: center;
+    margin: 20px;
 }
 
 .title {
@@ -87,14 +106,15 @@ main {
     font-family: 'Montserrat', sans-serif;
 }
 
-
 .parent {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    justify-content: center;
 }
+
 .card {
     width: 300px;
     border: 1px solid #ddd;
@@ -154,13 +174,47 @@ main {
     background-color: #e6c200;
 }
 
+@media (max-width: 1024px) {
+    .parent {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .parent {
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        margin: 20px 0;
+    }
+
+    .card-footer p {
+        font-size: 16px;
+    }
+
+    .card-footer .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+
 /* FOOTER */
 
-footer{
-    padding-top: 20px;
+footer {
+    display: block;
+    padding: 30px;
     margin-top: 50px;
     background-color: #F4F4F4;
-    display: block;
     justify-items: center;
 }
 
@@ -174,12 +228,32 @@ footer{
     font-family: 'Montserrat', sans-serif;
 }
 
-
 .parent-footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 100px;
     grid-row-gap: 20px;
     justify-items: center;
+}
+
+.foter__item{
+    display: grid;
+    text-align: center;
+    justify-items: center;
+}
+
+.foter__item img{
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+    .parent-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .parent-footer {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
